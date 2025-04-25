@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>List des étudiants</title>
+  <link rel="stylesheet"
+        href="/style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>
+      Liste de nos étudiants
+    </h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody id="student-list">
+        <!-- Les étudiants seront ajoutés ici par JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const fetchUsers = async () => {
+      const response = await fetch('/api/etudiants');
+      const data = await response.json();
+      return data;
+      const studentList = document.getElementById('student-list');
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const data = await fetchUsers();
+      const studentList = document.getElementById('student-list');
+
+      if (!data || !data.data) {
+        studentList.innerHTML = '<tr><td colspan="4">Erreur de chargement des étudiants</td></tr>';
+        return;
+      }
+
+      data.data.forEach(student => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${student.nom}</td>
+            <td>${student.email}</td>
+          `;
+        studentList.appendChild(row);
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

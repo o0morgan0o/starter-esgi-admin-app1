@@ -1,0 +1,35 @@
+body {
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: darkblue;
+}
+
+
+table {
+    th {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 8px;
+    }
+
+    border-radius: 8px;
+    background-color: lightblue;
+    padding: 24px;
+    margin-inline: auto;
+}
