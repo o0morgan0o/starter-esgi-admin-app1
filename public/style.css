@@ -13,7 +13,7 @@ body {
 
 h1 {
     text-align: center;
-    color: red;
+    color: darkblue;
 }
 
 
@@ -29,7 +29,7 @@ table {
     }
 
     border-radius: 8px;
-    background-color: lightblue;
+    background-color: red;
     padding: 24px;
     margin-inline: auto;
 }
